@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MonefyStats.UnitTest
+namespace UnitTestProject1
 {
     [TestClass]
     public class UnitTest1

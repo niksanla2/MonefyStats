@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonefyStatsWeb", "MonefyStatsWeb\MonefyStatsWeb.csproj", "{344FFB3D-35FF-449B-9758-2A1DB136339D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonefyStatsBussines", "MonefyStatsBussines\MonefyStatsBussines.csproj", "{30E1160C-F223-4198-B635-2D8CC4C638B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonefyStatsBussines", "MonefyStatsBussines\MonefyStatsBussines.csproj", "{30E1160C-F223-4198-B635-2D8CC4C638B6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{61B4D502-F8FF-4B99-8044-8CFFD4E06A85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonefyStats.UnitTest", "MonefyStats.UnitTest\MonefyStats.UnitTest.csproj", "{EA0AB860-03AD-4295-9B25-60D7B54F5453}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonefyStats.UnitTest", "MonefyStats.UnitTest\MonefyStats.UnitTest.csproj", "{EA0AB860-03AD-4295-9B25-60D7B54F5453}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
