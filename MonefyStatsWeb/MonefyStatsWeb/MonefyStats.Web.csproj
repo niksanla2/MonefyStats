@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MonefyStatsBussines\MonefyStats.Bussines.csproj" />
+    <ProjectReference Include="..\MonefyStatsWebRepository\MonefyStats.Repository.csproj" />
   </ItemGroup>
 
 </Project>

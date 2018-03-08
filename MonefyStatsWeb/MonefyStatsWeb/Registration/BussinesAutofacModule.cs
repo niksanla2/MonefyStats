@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using Autofac.Core;
+using Microsoft.Extensions.Configuration;
 using MonefyStats.Bussines.Services;
+using MonefyStats.Repository.Registration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +19,6 @@ namespace MonefyStats.Web.Registration
             builder
                 .RegisterType<FileService>()
                 .As<IFileService>();
-
         }
-
-
     }
 }
