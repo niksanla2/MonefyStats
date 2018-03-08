@@ -10,8 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using MonefyStats.Web.Registration;
 
-namespace MonefyStatsWeb
+namespace MonefyStats.Web
 {
     public class Startup
     {
@@ -27,10 +28,12 @@ namespace MonefyStatsWeb
         {
             services.AddMvc();
 
+
+           // services.Configure<Settings>
+
             //Add autofac
             var containerBuilder = new ContainerBuilder();
-
-            //containerBuilder.RegisterModule<>();
+            containerBuilder.RegisterModule<BussinesAutofacModule>();
             containerBuilder.Populate(services);
             var container = containerBuilder.Build();
             return new AutofacServiceProvider(container);
@@ -43,7 +46,6 @@ namespace MonefyStatsWeb
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseMvc();
         }
     }

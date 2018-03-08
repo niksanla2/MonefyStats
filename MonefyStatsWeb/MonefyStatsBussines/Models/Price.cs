@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MonefyStatsBussines
+namespace MonefyStats.Bussines.Models
 {
     public class Price
     {

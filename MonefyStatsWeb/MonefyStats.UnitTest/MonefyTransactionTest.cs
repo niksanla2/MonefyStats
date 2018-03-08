@@ -1,6 +1,7 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MonefyStatsBussines;
+using MonefyStats.Bussines;
+using MonefyStats.Bussines.Models;
 using NUnit.Framework;
 using System;
 
@@ -10,10 +11,11 @@ namespace MonefyStats.UnitTest
     public class MonefyTransactionTest
     {
         [Test]
-        public void ConvertFromString_Test()
+        public void ConvertFromString_Success()
         {
             //Arrange
             var str = "26/02/2018;Тинькофф Ник;Кэш Бэк;-10 000,01;RUB;20,0;EUR;Тест, тест";
+
             var exptectedMonefyTransaction = new MonefyTransaction()
             {
                 Account = "Тинькофф Ник",

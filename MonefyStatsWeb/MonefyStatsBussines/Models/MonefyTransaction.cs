@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace MonefyStatsBussines
+namespace MonefyStats.Bussines.Models 
 {
     public class MonefyTransaction
     {

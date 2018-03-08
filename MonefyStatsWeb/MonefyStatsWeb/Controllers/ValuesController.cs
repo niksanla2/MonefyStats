@@ -1,14 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MonefyStats.Bussines.Services;
 
-namespace MonefyStatsWeb.Controllers
+namespace MonefyStats.Web.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        private readonly IFileService _fileService;
+
+        public ValuesController(IFileService fileService)
+        {
+            _fileService = fileService;
+        }
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
@@ -25,8 +34,11 @@ namespace MonefyStatsWeb.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public async Task<IActionResult> Post(IFormFile files)
         {
+            //var fileId = await _fileService.SaveAsync(value);
+
+            return Ok();
         }
 
         // PUT api/values/5
