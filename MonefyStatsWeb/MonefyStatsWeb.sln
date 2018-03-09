@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{61B4D502
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonefyStats.UnitTest", "MonefyStats.UnitTest\MonefyStats.UnitTest.csproj", "{EA0AB860-03AD-4295-9B25-60D7B54F5453}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonefyStats.Repository", "MonefyStatsWebRepository\MonefyStats.Repository.csproj", "{F611DE0D-89B5-4395-8468-A26A9882854A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonefyStats.Repository", "MonefyStatsWebRepository\MonefyStats.Repository.csproj", "{F611DE0D-89B5-4395-8468-A26A9882854A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

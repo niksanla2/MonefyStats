@@ -51,6 +51,7 @@ namespace MonefyStats.Web
                 app.UseDeveloperExceptionPage();
             }
             app.UseMvc();
+            app.UseStaticFiles();
         }
     }
 }
