@@ -1,9 +1,9 @@
-﻿using MonefyStats.Repository.Model;
-using MonefyStats.Repository.Registration;
+﻿using MonefyStats.Repository.Registration;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MonefyStats.Repository.Models;
 
 namespace MonefyStats.Repository
 {
@@ -13,10 +13,7 @@ namespace MonefyStats.Repository
         public FileDbContext(ISettings settings)
         {
             var client = new MongoClient(settings.ConnectionString);
-            if (client != null)
-            {
-                _database = client.GetDatabase(settings.Database);
-            }
+            _database = client.GetDatabase(settings.Database);
         }
         public IMongoCollection<FileEntity> Files
         {

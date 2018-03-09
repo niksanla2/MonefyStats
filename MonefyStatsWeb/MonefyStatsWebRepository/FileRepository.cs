@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using MonefyStats.Repository.Model;
+using MonefyStats.Repository.Models;
 using MonefyStats.Repository.Registration;
 using MongoDB.Driver;
 
@@ -14,43 +14,45 @@ namespace MonefyStats.Repository
         private readonly FileDbContext _context;
         private FilterDefinition<FileEntity> GetEqFilterById(string id)
         {
-            var filter = Builders<FileEntity>.Filter.Eq(s => s.Id, id);
-            return filter;
+            return Builders<FileEntity>.Filter.Eq(s => s.Id, id);
         }
         public FileRepository(ISettings settings)
         {
             _context = new FileDbContext(settings);
             _settings = settings;
         }
-        public async Task AddFile(FileEntity item)
+        public async Task<string> AddFileAsync(FileEntity item)
         {
+            var id = Guid.NewGuid().ToString();
+            item.Id = id;
             await _context.Files.InsertOneAsync(item);
+            return id;
         }
 
-        public async Task<IEnumerable<FileEntity>> GetAllFiles()
+        public async Task<IEnumerable<FileEntity>> GetAllFilesAsync()
         {
             return await _context.Files.Find(el => true).ToListAsync();
         }
 
-        public async Task<FileEntity> GetFile(string id)
+        public async Task<FileEntity> GetFileAsync(string id)
         {
-            
             return await _context
                 .Files
-                .Find(filter)
+                .Find(GetEqFilterById(id))
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<DeleteResult> RemoveFile(string id)
+        public async Task<DeleteResult> RemoveFileAsync(string id)
         {
-            return await _context.Files.DeleteOneAsync(Builders<FileEntity>.Filter.Eq(s => s.Id, id));
+            return await _context.Files.DeleteOneAsync(GetEqFilterById(id));
         }
 
-        public async Task<UpdateResult> UpdateFile(string id, string body)
+        public async Task<UpdateResult> UpdateFileAsync(string id, string body)
         {
-            var filter = Builders<FileEntity>.Filter.Eq(s => s.Id, id);
-
-            return await _context.Files.UpdateOneAsync();
+            var update = Builders<FileEntity>.Update
+                .Set(s => s.Body, body)
+                .CurrentDate(s => s.UpdatedOn);
+            return await _context.Files.UpdateOneAsync(GetEqFilterById(id), update);
         }
     }
 }

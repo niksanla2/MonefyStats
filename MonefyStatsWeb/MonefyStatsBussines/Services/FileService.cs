@@ -2,19 +2,32 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using MonefyStats.Repository;
+using MonefyStats.Repository.Models;
 
 namespace MonefyStats.Bussines.Services
 {
     public class FileService : IFileService
     {
-        public Task<string> LoadAsync(Guid fileId)
+        private readonly IFileRepository _fileRepository;
+
+        public FileService(IFileRepository fileRepository)
         {
-            throw new NotImplementedException();
+            _fileRepository = fileRepository;
+        }
+        public async Task<string> LoadAsync(string fileId)
+        {
+            var file = await _fileRepository.GetFileAsync(fileId);
+            return file?.Body;
         }
 
-        public Task<Guid> SaveAsync(string content)
+        public async Task<string> SaveAsync(byte[] content)
         {
-            throw new NotImplementedException();
+
+            return await _fileRepository.AddFileAsync(new FileEntity
+            {
+                Content = content
+            });
         }
     }
 }

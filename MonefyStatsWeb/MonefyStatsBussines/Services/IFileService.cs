@@ -7,7 +7,7 @@ namespace MonefyStats.Bussines.Services
 {
     public interface IFileService
     {
-        Task<Guid> SaveAsync(string content);
-        Task<string> LoadAsync(Guid fileId);
+        Task<string> SaveAsync(byte[] content);
+        Task<string> LoadAsync(string fileId);
     }
 }

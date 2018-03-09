@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -18,39 +19,56 @@ namespace MonefyStats.Web.Controllers
         {
             _fileService = fileService;
         }
-        // GET api/values
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> GetFile(string id)
         {
-            return new string[] { "value1", "value2" };
+            return Ok(await _fileService.LoadAsync(id));
         }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
         [HttpPost]
-        public async Task<IActionResult> Post(IFormFile files)
+        public async Task<IActionResult> SendFile(IFormFile file)
         {
-            //var fileId = await _fileService.SaveAsync(value);
-
-            return Ok();
+            using (var memoryStream = new MemoryStream())
+            {
+                await file.CopyToAsync(memoryStream);
+                var bytes = memoryStream.ToArray();
+                return Ok(await _fileService.SaveAsync(bytes));
+            }
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+        //// GET api/values
+        //[HttpGet]
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        //// GET api/values/5
+        //[HttpGet("{id}")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
+
+        //// POST api/values
+        //[HttpPost]
+        //public async Task<IActionResult> Post(IFormFile files)
+        //{
+        //    //var fileId = await _fileService.SaveAsync(value);
+
+        //    return Ok();
+        //}
+
+        //// PUT api/values/5
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody]string value)
+        //{
+        //}
+
+        //// DELETE api/values/5
+        //[HttpDelete("{id}")]
+        //public void Delete(int id)
+        //{
+        //}
     }
 }
