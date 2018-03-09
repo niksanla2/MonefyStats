@@ -8,5 +8,10 @@ namespace MonefyStats.Bussines.Models
     {
         public decimal Value { get; set; }
         public string Currency { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Value} {Currency}";
+        }
     }
 }

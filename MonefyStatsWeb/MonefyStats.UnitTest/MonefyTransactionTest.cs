@@ -4,6 +4,7 @@ using MonefyStats.Bussines;
 using MonefyStats.Bussines.Models;
 using NUnit.Framework;
 using System;
+using MonefyStats.UnitTest.Assets;
 
 namespace MonefyStats.UnitTest
 {
@@ -14,26 +15,8 @@ namespace MonefyStats.UnitTest
         public void ConvertFromString_Success()
         {
             //Arrange
-            var str = "26/02/2018;Тинькофф Ник;Кэш Бэк;-10 000,01;RUB;20,0;EUR;Тест, тест";
-
-            var exptectedMonefyTransaction = new MonefyTransaction()
-            {
-                Account = "Тинькофф Ник",
-                Category = "Кэш Бэк",
-                Date = new DateTime(2018, 2, 26),
-                Description = "Тест, тест",
-                Price = new Price
-                {
-                    Currency = "RUB",
-                    Value = -10000.01m
-                },
-                ConvertedPrice = new Price
-                {
-                    Currency = "EUR",
-                    Value = 20m
-                }
-            };
-
+            var exptectedMonefyTransaction = MonefyTransactionAssert.TransactionsAssert[0];
+            var str = exptectedMonefyTransaction.ToStringCsv();
             //Act
             var resultMonefyTransaction = MonefyTransaction.ConvertFromString(str);
             //Assert

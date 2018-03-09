@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +34,7 @@ namespace MonefyStats.Web.Controllers
             {
                 await file.CopyToAsync(memoryStream);
                 var bytes = memoryStream.ToArray();
+
                 return Ok(await _fileService.SaveAsync(new FileBussines
                 {
                     Content = bytes
