@@ -16,6 +16,7 @@ namespace MonefyStats.Repository
         {
             return Builders<FileEntity>.Filter.Eq(s => s.Id, id);
         }
+        
         public FileRepository(ISettings settings)
         {
             _context = new FileDbContext(settings);
@@ -25,6 +26,9 @@ namespace MonefyStats.Repository
         {
             var id = Guid.NewGuid().ToString();
             item.Id = id;
+            var dateTimeNow = DateTime.UtcNow;
+            item.CreatedOn = dateTimeNow;
+            item.UpdatedOn = dateTimeNow;
             await _context.Files.InsertOneAsync(item);
             return id;
         }

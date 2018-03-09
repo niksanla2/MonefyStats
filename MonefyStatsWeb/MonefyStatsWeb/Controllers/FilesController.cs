@@ -6,21 +6,22 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MonefyStats.Bussines.Models;
 using MonefyStats.Bussines.Services;
 
 namespace MonefyStats.Web.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class FilesController : Controller
     {
         private readonly IFileService _fileService;
 
-        public ValuesController(IFileService fileService)
+        public FilesController(IFileService fileService)
         {
             _fileService = fileService;
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetFile(string id)
         {
             return Ok(await _fileService.LoadAsync(id));
@@ -32,7 +33,10 @@ namespace MonefyStats.Web.Controllers
             {
                 await file.CopyToAsync(memoryStream);
                 var bytes = memoryStream.ToArray();
-                return Ok(await _fileService.SaveAsync(bytes));
+                return Ok(await _fileService.SaveAsync(new FileBussines
+                {
+                    Content = bytes
+                }));
             }
         }
 

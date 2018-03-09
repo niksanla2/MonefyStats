@@ -9,6 +9,7 @@ namespace MonefyStats.Repository.Models
         public string Id { get; set; }
         public string Body { get; set; }
         public byte[] Content { get; set; }
+        public string Name { get; set; }
         public DateTime UpdatedOn { get; set; }
         public DateTime CreatedOn { get; set; }
         public int UserId { get; set; }
