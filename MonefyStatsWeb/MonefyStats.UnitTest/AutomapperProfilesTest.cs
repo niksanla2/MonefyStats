@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using AutoMapper;
+using MonefyStats.Bussines.Models;
 using MonefyStats.Bussines.Registration;
+using MonefyStats.Repository.Models;
 using NUnit.Framework;
 
 namespace MonefyStats.UnitTest
@@ -20,6 +22,5 @@ namespace MonefyStats.UnitTest
             //Act&Assert
             config.AssertConfigurationIsValid();
         }
-
     }
 }

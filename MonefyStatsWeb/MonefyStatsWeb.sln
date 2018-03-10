@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonefyStats.UnitTest", "Mon
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonefyStats.Repository", "MonefyStatsWebRepository\MonefyStats.Repository.csproj", "{F611DE0D-89B5-4395-8468-A26A9882854A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonefyStats.ChartJs", "MonefyStats.ChartJs\MonefyStats.ChartJs.csproj", "{A7D3742E-5834-4E17-B7AB-5832B2903CC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{F611DE0D-89B5-4395-8468-A26A9882854A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F611DE0D-89B5-4395-8468-A26A9882854A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F611DE0D-89B5-4395-8468-A26A9882854A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7D3742E-5834-4E17-B7AB-5832B2903CC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7D3742E-5834-4E17-B7AB-5832B2903CC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7D3742E-5834-4E17-B7AB-5832B2903CC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7D3742E-5834-4E17-B7AB-5832B2903CC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

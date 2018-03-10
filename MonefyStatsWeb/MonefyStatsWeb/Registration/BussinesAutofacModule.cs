@@ -19,6 +19,14 @@ namespace MonefyStats.Web.Registration
             builder
                 .RegisterType<FileService>()
                 .As<IFileService>();
+
+            builder
+                .RegisterType<MonefyTransactionService>()
+                .As<IMonefyTransactionService>();
+
+            builder
+                .RegisterType<ChartService>()
+                .As<IChartService>();
         }
     }
 }

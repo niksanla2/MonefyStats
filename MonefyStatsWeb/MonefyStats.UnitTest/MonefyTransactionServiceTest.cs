@@ -22,9 +22,9 @@ namespace MonefyStats.UnitTest
 
             var assetTransactonList = MonefyTransactionAssert.TransactionsAssert.Take(2).ToList();
 
-            var textMessage = $@"date;account;category;amount;currency;converted amount;currency;description
-{assetTransactonList[0].ToStringCsv()}
-{assetTransactonList[1].ToStringCsv()}";
+            var textMessage = $"date;account;category;amount;currency;converted amount;currency;description\n" 
+                + assetTransactonList[0].ToStringCsv() + "\n"
+                + assetTransactonList[1].ToStringCsv() + "\n";
 
             var byteArray = Encoding.UTF8.GetBytes(textMessage);
             var file = new FileBussines

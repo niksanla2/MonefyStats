@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MonefyStats.ChartJs\MonefyStats.ChartJs.csproj" />
     <ProjectReference Include="..\MonefyStatsWebRepository\MonefyStats.Repository.csproj" />
   </ItemGroup>
 

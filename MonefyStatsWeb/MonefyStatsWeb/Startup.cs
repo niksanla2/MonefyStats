@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using MonefyStats.Bussines.Registration;
 using MonefyStats.Repository.Registration;
 using MonefyStats.Web.Registration;
 
@@ -29,7 +31,8 @@ namespace MonefyStats.Web
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddAutoMapper();
+
+            services.AddAutoMapper(typeof(BussinesAutoMapperProfile).GetTypeInfo().Assembly);
 
             //Add autofac
             var containerBuilder = new ContainerBuilder();
