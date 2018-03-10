@@ -7,5 +7,6 @@ namespace MonefyStats.ChartJs
     {
         public string Label { get; set; }
         public IEnumerable<decimal?> Data { get; set; }
+        public ColorRgba BackgroundColor { get; set; }
     }
 }

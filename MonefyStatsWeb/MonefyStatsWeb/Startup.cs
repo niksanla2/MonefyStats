@@ -35,6 +35,10 @@ namespace MonefyStats.Web
                 .AddJsonOptions(options =>
                 {
                     options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                    options.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter
+                    {
+                        CamelCaseText = true
+                    });
                 });
             services.AddAutoMapper(typeof(BussinesAutoMapperProfile).GetTypeInfo().Assembly);
 

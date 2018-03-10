@@ -39,7 +39,8 @@ namespace MonefyStats.Bussines.Services
                      new Dataset
                      {
                          Label = account.Name,
-                         Data = account.GetDataByDay(start, end)
+                         Data = account.GetDataByDay(start, end),
+                         BackgroundColor = ColorsRgba.Blue
                      }),
                    
                     Labels = Enumerable.Range(0, 1 + end.Subtract(start).Days)
@@ -50,7 +51,7 @@ namespace MonefyStats.Bussines.Services
                 {
                     SpanGaps = true
                 },
-                Type = "line"
+                Type = ChartType.Line
             };
 
             return result;
