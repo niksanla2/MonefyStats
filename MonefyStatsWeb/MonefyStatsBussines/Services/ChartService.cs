@@ -40,7 +40,7 @@ namespace MonefyStats.Bussines.Services
                      {
                          Label = account.Name,
                          Data = account.GetDataByDay(start, end),
-                         BackgroundColor = ColorsRgba.Blue
+                         BackgroundColor = null
                      }),
                    
                     Labels = Enumerable.Range(0, 1 + end.Subtract(start).Days)

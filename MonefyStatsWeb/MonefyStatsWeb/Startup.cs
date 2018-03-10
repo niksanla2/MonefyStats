@@ -15,9 +15,11 @@ using Microsoft.Extensions.Options;
 using MonefyStats.Bussines.Registration;
 using MonefyStats.Repository.Registration;
 using MonefyStats.Web.Registration;
+using Newtonsoft.Json.Serialization;
 
 namespace MonefyStats.Web
 {
+
     public class Startup
     {
         public Startup(IConfiguration configuration)

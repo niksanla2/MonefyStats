@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MonefyStats.ChartJs.JsonConverters;
+using Newtonsoft.Json;
 
 namespace MonefyStats.ChartJs
 {
+    [JsonConverter(typeof(JsonDeserializationPropertyColorRgbaConverter))]
     public class ColorRgba
     {
         public ColorRgba() : this(0, 0, 0)
