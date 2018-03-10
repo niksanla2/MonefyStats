@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace MonefyStats.Bussines.Models 
+namespace MonefyStats.Bussines.Models
 {
     public class MonefyTransaction
     {
@@ -14,13 +14,13 @@ namespace MonefyStats.Bussines.Models
         public static MonefyTransaction ConvertFromString(string str)
         {
             var style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands | NumberStyles.AllowLeadingSign;
-            
+
             var values = str.Split(';');
             var result = new MonefyTransaction
             {
                 Date = DateTime.ParseExact(values[0], "dd/MM/yyyy", _formatProvider),
                 Account = values[1],
-                Category  = values[2],
+                Category = values[2],
                 Price = new Price
                 {
                     Value = decimal.Parse(values[3], style, _formatProvider),
@@ -40,6 +40,10 @@ namespace MonefyStats.Bussines.Models
         public string Category { get; set; }
         public Price Price { get; set; }
         public Price ConvertedPrice { get; set; }
-        public string Description { get; set; }       
+        public string Description { get; set; }
+        public TransactionType TransactionType =>
+            Price.Value >= 0 ?
+                TransactionType.Income :
+                TransactionType.Expense;
     }
 }

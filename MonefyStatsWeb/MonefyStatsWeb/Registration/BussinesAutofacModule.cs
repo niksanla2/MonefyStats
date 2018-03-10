@@ -27,6 +27,11 @@ namespace MonefyStats.Web.Registration
             builder
                 .RegisterType<ChartService>()
                 .As<IChartService>();
+
+            builder
+                .RegisterType<ProfileService>()
+                .As<IProfileService>();
+            
         }
     }
 }

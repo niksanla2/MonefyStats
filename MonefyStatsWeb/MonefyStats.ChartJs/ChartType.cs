@@ -6,6 +6,7 @@ namespace MonefyStats.ChartJs
 {
     public enum ChartType
     {
-        Line
+        Line,
+        Bar
     }
 }

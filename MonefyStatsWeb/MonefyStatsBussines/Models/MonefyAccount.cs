@@ -14,7 +14,7 @@ namespace MonefyStats.Bussines.Models
         }
         public string Name { get; }
         public IEnumerable<MonefyTransaction> Transactions { get; }
-        public IEnumerable<decimal?> GetDataByDay(DateTime fromDate, DateTime toDate)
+        public IEnumerable<decimal?> GetDataByDay(DateTime fromDate, DateTime toDate, TransactionType transactionType)
         {
             var resultData = new List<decimal?>();
             if (fromDate >= toDate)
@@ -22,10 +22,11 @@ namespace MonefyStats.Bussines.Models
                 return resultData;
             }
             var currentDate = fromDate;
+            var transactions = Transactions.Where(el => el.TransactionType == transactionType);
 
             while (currentDate < toDate)
             {
-                var curentDayTransactions = Transactions.Where(el => el.Date == currentDate).ToList();
+                var curentDayTransactions = transactions.Where(el => el.Date == currentDate).ToList();
                 if (!curentDayTransactions.Any())
                 {
                     resultData.Add(null);

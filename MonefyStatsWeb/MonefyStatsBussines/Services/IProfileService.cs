@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using MonefyStats.Bussines.Models;
-using MonefyStats.ChartJs;
 
 namespace MonefyStats.Bussines.Services
 {
-    public interface IChartService
+    public interface IProfileService
     {
-        Chart GetLineChartData(MonefyProfile monefyProfile);
+        Task<MonefyProfile> GetProfileByIdAsync(string id);
+        Task<string> SaveProfileAsync(FileBussines fileBussines);
     }
 }

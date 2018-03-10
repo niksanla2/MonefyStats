@@ -1,6 +1,6 @@
-﻿namespace MonefyStats.ChartJs.Charts
+﻿namespace MonefyStats.ChartJs
 {
-    public class LineChart
+    public class Chart
     {
         public ChartType Type { get; set; }
         public Data Data { get; set; }

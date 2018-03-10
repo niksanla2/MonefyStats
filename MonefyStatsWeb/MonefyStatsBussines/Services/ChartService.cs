@@ -5,33 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using MonefyStats.Bussines.Models;
 using MonefyStats.ChartJs;
-using MonefyStats.ChartJs.Charts;
 
 namespace MonefyStats.Bussines.Services
 {
     public class ChartService : IChartService
     {
-        private readonly IFileService _fileService;
-        private readonly IMonefyTransactionService _monefyTransactionService;
 
-        public ChartService(IFileService fileService, IMonefyTransactionService monefyTransactionService)
+        public Chart GetLineChartData(MonefyProfile monefyProfile)
         {
-            _fileService = fileService;
-            _monefyTransactionService = monefyTransactionService;
-        }
-        public async Task<LineChart> GetLineChartDataAsync(string id)
-        {
-            var file = await _fileService.LoadAsync(id);
-            if (file == null)
-            {
-                return null;
-            }
-            var transactions = _monefyTransactionService.GetTransactionsFromFile(file);
-            var monefyProfile = new MonefyProfile(transactions);
+
             var start = new DateTime(2018, 2, 15);
             var end = new DateTime(2018, 3, 3);
 
-            var result = new LineChart
+            var result = new Chart
             {
                 Data = new ChartJs.Data
                 {
@@ -39,10 +25,10 @@ namespace MonefyStats.Bussines.Services
                      new Dataset
                      {
                          Label = account.Name,
-                         Data = account.GetDataByDay(start, end),
-                         BackgroundColor = null
+                         Data = account.GetDataByDay(start, end, TransactionType.Expense).Select(el => el * -1),
+                         BackgroundColor = ColorsRgba.Random(0.9m)
                      }),
-                   
+
                     Labels = Enumerable.Range(0, 1 + end.Subtract(start).Days)
                         .Select(offset => start.AddDays(offset).ToString("dd/MM/yyyy"))
 

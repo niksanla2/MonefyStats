@@ -12,7 +12,7 @@ namespace MonefyStats.ChartJs
         public ColorRgba() : this(0, 0, 0)
         {
         }
-        public ColorRgba(byte red, byte green, byte blue) : this(red, green, blue, 1)
+        public ColorRgba(byte red, byte green, byte blue) : this(red, green, blue, 0.3m)
         {
         }
         public ColorRgba(byte red, byte green, byte blue, decimal alpha)

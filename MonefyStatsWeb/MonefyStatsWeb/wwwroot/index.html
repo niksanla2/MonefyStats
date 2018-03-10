@@ -9,13 +9,10 @@
 <body>
     <canvas id="myChart"></canvas>
     <script>
-
-
-        $.getJSON("http://localhost:62347/api/charts/line/3aa05f8e-a376-4813-9938-c0525ed60fd0", function (json) {
+        $.getJSON("http://localhost:62347/api/profiles/3aa05f8e-a376-4813-9938-c0525ed60fd0/charts/line/", function (json) {
             var ctx = document.getElementById('myChart').getContext('2d');
             var chart = new Chart(ctx, json);
         });
-
     </script>
 </body>
 </html>
