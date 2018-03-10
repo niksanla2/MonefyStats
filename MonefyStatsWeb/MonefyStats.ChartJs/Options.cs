@@ -6,5 +6,6 @@ namespace MonefyStats.ChartJs
 {
     public class Options
     {
+        public bool? SpanGaps { get; set; }
     }
 }

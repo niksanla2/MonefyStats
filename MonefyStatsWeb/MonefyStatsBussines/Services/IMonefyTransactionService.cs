@@ -7,6 +7,6 @@ namespace MonefyStats.Bussines.Services
 {
     public interface IMonefyTransactionService
     {
-        IList<MonefyTransaction> GetTransactionsFromFile(FileBussines file);
+        IEnumerable<MonefyTransaction> GetTransactionsFromFile(FileBussines file);
     }
 }

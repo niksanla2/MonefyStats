@@ -30,8 +30,12 @@ namespace MonefyStats.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-
+            services
+                .AddMvc()
+                .AddJsonOptions(options =>
+                {
+                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                });
             services.AddAutoMapper(typeof(BussinesAutoMapperProfile).GetTypeInfo().Assembly);
 
             //Add autofac

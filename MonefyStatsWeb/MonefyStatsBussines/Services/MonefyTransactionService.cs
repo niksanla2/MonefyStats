@@ -8,7 +8,7 @@ namespace MonefyStats.Bussines.Services
 {
     public class MonefyTransactionService : IMonefyTransactionService
     {
-        public IList<MonefyTransaction> GetTransactionsFromFile(FileBussines file)
+        public IEnumerable<MonefyTransaction> GetTransactionsFromFile(FileBussines file)
         {
             var scvFile = Encoding.UTF8.GetString(file.Content);
             var lines = scvFile.Split("\n").Skip(1).Where(el=> !string.IsNullOrEmpty(el));
