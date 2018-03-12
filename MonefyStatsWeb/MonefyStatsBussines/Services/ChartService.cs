@@ -37,7 +37,7 @@ namespace MonefyStats.Bussines.Services
                 {
                     SpanGaps = true
                 },
-                Type = ChartType.Line
+                Type = ChartType.Bar
             };
 
             return result;

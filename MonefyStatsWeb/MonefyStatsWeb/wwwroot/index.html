@@ -5,14 +5,16 @@
     <title></title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="scripts/Index.js"></script>
 </head>
 <body>
-    <canvas id="myChart"></canvas>
-    <script>
-        $.getJSON("http://localhost:62347/api/profiles/3aa05f8e-a376-4813-9938-c0525ed60fd0/charts/line/", function (json) {
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var chart = new Chart(ctx, json);
-        });
-    </script>
+<!--<canvas id="myChart"></canvas>
+<div id="content"></div>-->
+<input name="myFile" type="file">
+
+<script>
+    var index = new Index($("#content"));
+    index.RenderChart();
+</script>
 </body>
 </html>
